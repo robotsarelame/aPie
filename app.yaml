@@ -1,0 +1,12 @@
+application: uda-cs253-demo
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  script: main.app
+
+- url: /unit2/.*
+  script: unit2.app
