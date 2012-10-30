@@ -8,7 +8,7 @@
 <h3>Enter a text below for ROT13 transform:</h3>
     <p>
     <form method="post">
-        <p><textarea rows="10" cols="45" name="text">{{text}}</textarea></p>
+        <p><textarea rows="10" cols="45" name="text">{{text|safe}}</textarea></p>
         <br>
         <input type="submit" name="submit_btn" value="Convert">
     </form>

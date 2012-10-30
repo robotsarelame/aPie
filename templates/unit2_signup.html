@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>UDACITY CS253: Unit2 Signup</title>
+</head>
+<body>
+    {% autoescape on %}
+    <form method="post">
+        <h3>New user signup form</h3>
+        <label>
+            Username:
+            <input type="text" name="username" value="{{username}}">
+        </label>
+        <span style="color: red">{{username_error}}</span>
+        <br>
+        <label>
+            Password:
+            <input type="text" name="password" value="{{password}}">
+        </label>
+        <span style="color: red">{{password_error}}</span>
+        <br>
+        <label>
+            Verify password:
+            <input type="text" name="verify" value="{{verify}}">
+        </label>
+        <span style="color: red">{{verify_error}}</span>
+        <br>
+        <label>
+            Email (optional):
+            <input type="text" name="email" value="{{email}}">
+        </label>
+        <span style="color: red">{{email_error}}</span>
+        <br>
+        <br>
+        <input type="submit" value="Signup">
+    </form>
+    {% endautoescape %}
+</body>
+</html>
