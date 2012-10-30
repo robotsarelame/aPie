@@ -1,17 +1,31 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
     <title>UDACITY CS253: Unit2 ROT13</title>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
 </head>
 <body>
-<h3>Enter a text below for ROT13 transform:</h3>
-    <p>
-    <form method="post">
-        <p><textarea rows="10" cols="45" name="text">{{text|safe}}</textarea></p>
-        <br>
-        <input type="submit" name="submit_btn" value="Convert">
-    </form>
-    </p>
+    <script src="/js/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <form method="post">
+                    <fieldset>
+                        <legend>Enter a text below for ROT13 transform:</legend>
+                        <div class="control-group">
+                            <div class="controls">
+                                <textarea class="input-xxlarge" rows="7" name="text">{{text|safe}}</textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn">Convert</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

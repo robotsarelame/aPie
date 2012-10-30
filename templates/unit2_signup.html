@@ -6,47 +6,52 @@
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
 </head>
 <body>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     {% autoescape on %}
-    <form method="post" class="form-horizontal">
-        <fieldset>
-            <legend>User Signup</legend>
-            <div class="control-group {{isUserErrorOrSuccess}}">
-                <label class="control-label" for="inputUsername">Username</label>
-                <div class="controls">
-                    <input type="text" name="username" id="inputUsername" value="{{username}}" placeholder="Enter desired username…">
-                    <span class="help-inline">{{username_error}}</span>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <form method="post" class="form-horizontal">
+                    <fieldset>
+                        <legend>User Signup</legend>
+                        <div class="control-group {{isUserErrorOrSuccess}}">
+                            <label class="control-label" for="inputUsername">Username</label>
+                            <div class="controls">
+                                <input type="text" name="username" id="inputUsername" value="{{username}}" placeholder="Enter desired username…">
+                                <span class="help-inline">{{username_error}}</span>
+                            </div>
+                        </div>
+                        <div class="control-group {{isPassErrorOrSuccess}}">
+                            <label class="control-label" for="inputPassword">Password</label>
+                            <div class="controls">
+                                <input type="password" name="password" id="inputPassword" value="{{password}}" placeholder="Enter desired password…">
+                                <span class="help-inline">{{password_error}}</span>
+                            </div>
+                        </div>
+                        <div class="control-group {{isVerifyErrorOrSuccess}}">
+                            <label class="control-label" for="inputVerify">Verify password</label>
+                            <div class="controls">
+                                <input type="password" name="verify" id="inputVerify" value="{{verify}}" placeholder="Repeat your password…">
+                                <span class="help-inline">{{verify_error}}</span>
+                            </div>
+                        </div>
+                        <div class="control-group {{isEmailErrorOrSuccess}}">
+                            <label class="control-label" for="inputEmail">Email (optional)</label>
+                            <div class="controls">
+                                <input type="text" name="email" id="inputEmail" value="{{email}}">
+                                <span class="help-inline">{{email_error}}</span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn">Signup</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
-            <div class="control-group {{isPassErrorOrSuccess}}">
-                <label class="control-label" for="inputPassword">Password</label>
-                <div class="controls">
-                    <input type="password" name="password" id="inputPassword" value="{{password}}" placeholder="Enter desired password…">
-                    <span class="help-inline">{{password_error}}</span>
-                </div>
-            </div>
-            <div class="control-group {{isVerifyErrorOrSuccess}}">
-                <label class="control-label" for="inputVerify">Verify password</label>
-                <div class="controls">
-                    <input type="password" name="verify" id="inputVerify" value="{{verify}}" placeholder="Repeat your password…">
-                    <span class="help-inline">{{verify_error}}</span>
-                </div>
-            </div>
-            <div class="control-group {{isEmailErrorOrSuccess}}">
-                <label class="control-label" for="inputEmail">Email (optional)</label>
-                <div class="controls">
-                    <input type="text" name="email" id="inputEmail" value="{{email}}">
-                    <span class="help-inline">{{email_error}}</span>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <button type="submit" class="btn">Signup</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>
+        </div>
+    </div>
     {% endautoescape %}
 </body>
 </html>
