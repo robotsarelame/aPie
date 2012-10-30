@@ -4,7 +4,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 import main, os
 
-alphabet = 'abcdefghijklmnopqrstuvwxyz'
+rot13_template =  os.path.join(os.path.dirname(__file__), 'templates\unit2_rot13.html' )
 
 def convert(char, list):
     length = len(list)
@@ -17,6 +17,7 @@ def convert(char, list):
 
 def rot13_converter(text_to_convert):
     if text_to_convert:
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
         converted =''
         for char in text_to_convert:
             if char in list(alphabet):
@@ -27,18 +28,22 @@ def rot13_converter(text_to_convert):
                 converted +=char
         return converted
 
-class Rot13Handler(webapp.RequestHandler):
-    def write_rot13_form(self, text=""):
-        rot13_template =  os.path.join(os.path.dirname(__file__), 'templates\unit2_rot13.html' )
-        self.response.out.write(template.render(rot13_template, {'text':main.escape_html(text)}))
+class BaseHandler(webapp.RequestHandler):
+    def render(self, page_template, **values):
+        self.response.out.write(template.render(page_template, values))
 
-    def get(self, *args):
-        self.write_rot13_form()
+class Rot13Handler(BaseHandler):
+    def get(self):
+        self.render(rot13_template, text='')
 
-    def post(self, *args):
+    def post(self):
         user_text = self.request.get("text")
         converted_text = rot13_converter(user_text)
-        self.write_rot13_form(text=converted_text)
+        self.render(rot13_template, text=main.escape_html(converted_text))
 
-app = webapp.WSGIApplication([('/unit2/rot13', Rot13Handler)],
+class SignUpHandler(webapp.RequestHandler):
+    pass
+
+app = webapp.WSGIApplication([('/unit2/rot13', Rot13Handler),
+                                ('/unit2/signup', SignUpHandler)],
     debug=True)
