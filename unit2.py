@@ -1,18 +1,8 @@
 __author__ = 'miracledelivery'
 
 from google.appengine.ext import webapp
-import main
+import main, os
 
-rot13_form="""
-<h>Enter the text below:</h1>
-<p>
-    <form method="post">
-        <p><textarea rows="10" cols="45" name="text">%(text)s</textarea></p>
-        <br>
-        <input type="submit" name="submit_btn" value="Convert">
-    </form>
-</p>
-"""
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 def convert(char, list):
@@ -38,7 +28,8 @@ def rot13_converter(text_to_convert):
 
 class Rot13Handler(webapp.RequestHandler):
     def write_rot13_form(self, text=""):
-        self.response.out.write(rot13_form % {'text':main.escape_html(text)})
+        rot13_template =  os.path.join(os.path.dirname(__file__), 'templates\unit2_rot13.html' )
+        self.response.out.write(webapp.template.render(rot13_template, {'text':main.escape_html(text)}))
 
     def get(self, *args):
         self.write_rot13_form()
