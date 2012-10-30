@@ -49,3 +49,20 @@ def valid_month(month):
 def escape_html(s):
     import cgi
     return cgi.escape(s, quote=True)
+
+import re
+USER_REGEXP = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
+PASS_REGEXP = re.compile(r"^.{3,20}$")
+EMAIL_REGEXP = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
+
+def validate_username(username):
+    return USER_REGEXP.match(username)
+
+def validate_password(password):
+    return PASS_REGEXP.match(password)
+
+def validate_email(email):
+    if email:
+        return EMAIL_REGEXP.match(email)
+    else:
+        return True
