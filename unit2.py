@@ -4,8 +4,8 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 import os, utils
 
-rot13_template =  os.path.join(os.path.dirname(__file__), 'templates\unit2_rot13.html' )
-signup_template = os.path.join(os.path.dirname(__file__), 'templates\unit2_signup.html' )
+rot13_template =  os.path.join(os.path.dirname(__file__), 'templates/unit2_rot13.html' )
+signup_template = os.path.join(os.path.dirname(__file__), 'templates/unit2_signup.html' )
 
 class BaseHandler(webapp.RequestHandler):
     def render(self, page_template, **values):
