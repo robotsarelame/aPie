@@ -1,39 +1,51 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
     <title>UDACITY CS253: Unit2 Signup</title>
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
 </head>
 <body>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     {% autoescape on %}
-    <form method="post">
-        <h3>New user signup form</h3>
-        <label>
-            Username:
-            <input type="text" name="username" value="{{username}}">
-        </label>
-        <span style="color: red">{{username_error}}</span>
-        <br>
-        <label>
-            Password:
-            <input type="password" name="password" value="{{password}}">
-        </label>
-        <span style="color: red">{{password_error}}</span>
-        <br>
-        <label>
-            Verify password:
-            <input type="password" name="verify" value="{{verify}}">
-        </label>
-        <span style="color: red">{{verify_error}}</span>
-        <br>
-        <label>
-            Email (optional):
-            <input type="text" name="email" value="{{email}}">
-        </label>
-        <span style="color: red">{{email_error}}</span>
-        <br>
-        <br>
-        <input type="submit" value="Signup">
+    <form method="post" class="form-horizontal">
+        <fieldset>
+            <legend>User Signup</legend>
+            <div class="control-group {{isUserErrorOrSuccess}}">
+                <label class="control-label" for="inputUsername">Username</label>
+                <div class="controls">
+                    <input type="text" name="username" id="inputUsername" value="{{username}}" placeholder="Enter desired username…">
+                    <span class="help-inline">{{username_error}}</span>
+                </div>
+            </div>
+            <div class="control-group {{isPassErrorOrSuccess}}">
+                <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                    <input type="password" name="password" id="inputPassword" value="{{password}}" placeholder="Enter desired password…">
+                    <span class="help-inline">{{password_error}}</span>
+                </div>
+            </div>
+            <div class="control-group {{isVerifyErrorOrSuccess}}">
+                <label class="control-label" for="inputVerify">Verify password</label>
+                <div class="controls">
+                    <input type="password" name="verify" id="inputVerify" value="{{verify}}" placeholder="Repeat your password…">
+                    <span class="help-inline">{{verify_error}}</span>
+                </div>
+            </div>
+            <div class="control-group {{isEmailErrorOrSuccess}}">
+                <label class="control-label" for="inputEmail">Email (optional)</label>
+                <div class="controls">
+                    <input type="text" name="email" id="inputEmail" value="{{email}}">
+                    <span class="help-inline">{{email_error}}</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Signup</button>
+                </div>
+            </div>
+        </fieldset>
     </form>
     {% endautoescape %}
 </body>

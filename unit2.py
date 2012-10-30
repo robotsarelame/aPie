@@ -43,12 +43,16 @@ class SignUpHandler(BaseHandler):
             form_values = {'username':raw_username, 'email':raw_email}
             if not username:
                 form_values['username_error'] = 'Invalid username!'
+                form_values['isUserErrorOrSuccess'] = 'error'
             if not password:
                 form_values['password_error'] = 'Invalid password!'
+                form_values['isPassErrorOrSuccess'] = 'error'
             if raw_password!=raw_verify:
-                form_values['verify_error'] = "Ooops! Dpesn't match to the password above"
+                form_values['verify_error'] = "Ooops! Doesn't match to the password above"
+                form_values['isVerifyErrorOrSuccess'] = 'error'
             if not email:
                 form_values['email_error'] = "Invalid email address!"
+                form_values['isEmailErrorOrSuccess'] = 'error'
             self.render(signup_template, **form_values)
         else:
             self.redirect("welcome?user=%s" % str(raw_username))
