@@ -31,6 +31,9 @@ handlers:
 - url: /
   script: main.app
 
+- url: /sqltools
+  script: sqltools.app
+
 - url: /.*
   script: unit2.app
 
